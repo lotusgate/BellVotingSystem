@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BellVotingSystem.WEB", "BellVotingSystem.WEB\BellVotingSystem.WEB.csproj", "{EC371AD3-34D8-46C5-94C3-9CB91025618B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BellVotingSystem.Data", "BellVotingSystem.Data\BellVotingSystem.Data.csproj", "{72384D53-F8C9-49CB-ADF9-C8EB63B95E79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC371AD3-34D8-46C5-94C3-9CB91025618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC371AD3-34D8-46C5-94C3-9CB91025618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC371AD3-34D8-46C5-94C3-9CB91025618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC371AD3-34D8-46C5-94C3-9CB91025618B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72384D53-F8C9-49CB-ADF9-C8EB63B95E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72384D53-F8C9-49CB-ADF9-C8EB63B95E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72384D53-F8C9-49CB-ADF9-C8EB63B95E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72384D53-F8C9-49CB-ADF9-C8EB63B95E79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B55FF53D-B94D-4F06-9949-800FC50224FF}
+	EndGlobalSection
+EndGlobal
