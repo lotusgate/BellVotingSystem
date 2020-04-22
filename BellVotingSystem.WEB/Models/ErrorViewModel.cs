@@ -1,5 +1,3 @@
-using System;
-
 namespace BellVotingSystem.WEB.Models
 {
     public class ErrorViewModel
