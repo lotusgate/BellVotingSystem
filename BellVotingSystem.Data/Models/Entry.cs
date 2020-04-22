@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BellVotingSystem.Data.Models
 {
@@ -13,5 +11,9 @@ namespace BellVotingSystem.Data.Models
         public string Artist { get; set; }
 
         public int VoteCount { get; set; }
+
+        public bool IsBlackListed { get; set; }
+
+        public DateTime ChosenOn { get; set; }
     }
 }
