@@ -30,7 +30,7 @@ namespace BellVotingSystem.WEB.Data.Migrations
                     b.Property<DateTime>("ChosenOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsBlackListed")
+                    b.Property<bool>("IsBlacklisted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Song")

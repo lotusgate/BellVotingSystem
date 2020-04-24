@@ -14,7 +14,7 @@ namespace BellVotingSystem.WEB.Data.Migrations
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.AddColumn<bool>(
-                name: "IsBlackListed",
+                name: "IsBlacklisted",
                 table: "Entries",
                 nullable: false,
                 defaultValue: false);
@@ -33,7 +33,7 @@ namespace BellVotingSystem.WEB.Data.Migrations
                 table: "Entries");
 
             migrationBuilder.DropColumn(
-                name: "IsBlackListed",
+                name: "IsBlacklisted",
                 table: "Entries");
 
             migrationBuilder.DropColumn(

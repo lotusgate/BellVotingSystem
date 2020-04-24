@@ -10,7 +10,7 @@ using VotingSystem.WEB.Data;
 namespace BellVotingSystem.WEB.Data.Migrations
 {
     [DbContext(typeof(VotingSystemDbContext))]
-    [Migration("20200422101216_completedDatabase")]
+    [Migration("20200424160728_completedDatabase")]
     partial class completedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace BellVotingSystem.WEB.Data.Migrations
                     b.Property<DateTime>("ChosenOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsBlackListed")
+                    b.Property<bool>("IsBlacklisted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Song")
