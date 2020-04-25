@@ -2,6 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BellVotingSystem.WEB.Models;
+using Microsoft.AspNetCore.Identity;
+using VotingSystem.WEB.Data;
+using System.Linq;
+using System;
+using System.Threading.Tasks;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -9,13 +14,30 @@ namespace BellVotingSystem.WEB.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly VotingSystemDbContext context;
+        private readonly RoleManager<IdentityRole> roleManager;
+
+        public HomeController(ILogger<HomeController> logger, VotingSystemDbContext context, RoleManager<IdentityRole> roleManager)
         {
             _logger = logger;
+
+            this.context = context;
+            this.roleManager = roleManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            if (!context.Roles.Any())
+            {
+                IdentityRole masterAdmin = new IdentityRole() { Id = Guid.NewGuid().ToString(), Name = "MasterAdmin" };
+                IdentityRole subAdmin = new IdentityRole() { Id = Guid.NewGuid().ToString(), Name = "SubAdmin" };
+                IdentityRole voter = new IdentityRole() { Id = Guid.NewGuid().ToString(), Name = "Voter" };
+
+                await roleManager.CreateAsync(masterAdmin);
+                await roleManager.CreateAsync(subAdmin);
+                await roleManager.CreateAsync(voter);
+            }
+
             return View();
         }
 

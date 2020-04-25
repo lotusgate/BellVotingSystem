@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BellVotingSystem.WEB.Models.User
+﻿namespace BellVotingSystem.WEB.Models.User
 {
     public class UserViewModel
     {

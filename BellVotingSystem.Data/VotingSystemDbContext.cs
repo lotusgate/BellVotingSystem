@@ -15,7 +15,7 @@ namespace VotingSystem.WEB.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Database=project;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=BellVotingSystem;Trusted_Connection=True;");
         }
     }
 }
