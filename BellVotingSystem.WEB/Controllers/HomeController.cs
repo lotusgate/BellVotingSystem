@@ -7,6 +7,7 @@ using VotingSystem.WEB.Data;
 using System.Linq;
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -36,6 +37,11 @@ namespace BellVotingSystem.WEB.Controllers
                 await roleManager.CreateAsync(masterAdmin);
                 await roleManager.CreateAsync(subAdmin);
                 await roleManager.CreateAsync(voter);
+            }
+
+            if (!context.Users.Any())
+            {
+                return RedirectToPage("/Account/Register", new { area = "Identity" });
             }
 
             return View();

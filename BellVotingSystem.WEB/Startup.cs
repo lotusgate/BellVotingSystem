@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VotingSystem.WEB.Data;
 using BellVotingSystem.Data.Models;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace BellVotingSystem.WEB
 {
@@ -66,6 +67,7 @@ namespace BellVotingSystem.WEB
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapRazorPages();
             });
         }
