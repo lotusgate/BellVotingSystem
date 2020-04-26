@@ -1,4 +1,5 @@
-﻿using BellVotingSystem.Data.Models;
+﻿using BellVotingSystem.Data;
+using BellVotingSystem.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ namespace VotingSystem.WEB.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=BellVotingSystem;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(Config.CONNECTION_STRING);
         }
     }
 }
