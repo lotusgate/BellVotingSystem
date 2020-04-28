@@ -5,9 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using VotingSystem.WEB.Data;
 using BellVotingSystem.Data.Models;
-using Microsoft.AspNetCore.Mvc.Razor;
+using BellVotingSystem.Data;
 
 namespace BellVotingSystem.WEB
 {

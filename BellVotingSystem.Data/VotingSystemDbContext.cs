@@ -1,10 +1,9 @@
-﻿using BellVotingSystem.Data;
-using BellVotingSystem.Data.Models;
+﻿using BellVotingSystem.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace VotingSystem.WEB.Data
+namespace BellVotingSystem.Data
 {
     public class VotingSystemDbContext : IdentityDbContext<User, IdentityRole, string>
     {
