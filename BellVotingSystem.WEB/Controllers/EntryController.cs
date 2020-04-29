@@ -30,9 +30,7 @@ namespace BellVotingSystem.WEB.Controllers
             {
                 Song = entry.Song,
                 Artist = entry.Artist,
-                VoteCount = entry.VoteCount,
-                IsBlacklisted = entry.IsBlacklisted,
-                ChosenOn = entry.ChosenOn,
+                VoteCount = entry.VoteCount
             };
 
             return View("", entryViewModel);

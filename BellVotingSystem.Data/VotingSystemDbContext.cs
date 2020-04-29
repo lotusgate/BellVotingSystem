@@ -11,6 +11,8 @@ namespace BellVotingSystem.Data
             : base(options)
         { }
 
+        public DbSet<BlacklistedSong> BlacklistedSongs { get; set; }
+
         public DbSet<Entry> Entries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
