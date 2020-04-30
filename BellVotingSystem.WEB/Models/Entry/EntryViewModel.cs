@@ -10,8 +10,6 @@ namespace BellVotingSystem.WEB.Models
 
         public int VoteCount { get; set; }
 
-        public bool IsBlacklisted { get; set; }
-
         public DateTime ChosenOn { get; set; }
     }
 }

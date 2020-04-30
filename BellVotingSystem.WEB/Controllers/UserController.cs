@@ -32,7 +32,6 @@ namespace BellVotingSystem.WEB.Controllers
             UserViewModel userViewModel = new UserViewModel()
             {
                 Username = user.UserName,
-                Email = user.Email,
                 HasVoted = user.HasVoted
             };
 
