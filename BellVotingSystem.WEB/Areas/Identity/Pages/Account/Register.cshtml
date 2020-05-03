@@ -12,10 +12,26 @@
             <h4>Create a new account.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
+
+            @if (User.IsInRole("MasterAdmin"))
+            {
+                //FRONT END
+                //Трябва по някакъв начин да може да се избере роля.
+                //Ако се избере роля Voter трябва IsAdmin полето да връща false.
+                //Ако се избере роля Sub Admin трябва IsAdmin полето да връща true.
+                //Вие си изберете как да изглежда - checkbox, dropdown menu, segment control и т.н.
+                //(Според мен segment control ще е най-яко, ама сте свободни да го направите както си искате, разбира се.)
+            }
+            else
+            {
+                //FRONT END
+                //Полето за IsAdmin трябва да е скрито. Оставете го да връща някакво value, няма значение какво е.
+            }
+
             <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                <label asp-for="Input.Username"></label>
+                <input asp-for="Input.Username" class="form-control" />
+                <span asp-validation-for="Input.Username" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Input.Password"></label>

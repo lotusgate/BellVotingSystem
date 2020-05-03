@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using BellVotingSystem.Data;
 using BellVotingSystem.Data.Models;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -35,14 +33,15 @@ namespace BellVotingSystem.WEB.Areas.Identity.Pages.Account
 
         public string ReturnUrl { get; set; }
 
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
-
         public class InputModel
         {
+            [Display(Name = "Is Admin")]
+            public bool IsAdmin { get; set; }
+
             [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
+            [StringLength(40, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+            [Display(Name = "Username")]
+            public string Username { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -59,22 +58,18 @@ namespace BellVotingSystem.WEB.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
             if (ModelState.IsValid)
             {
                 var user = new User 
                 { 
                     Id = Guid.NewGuid().ToString(), 
-                    UserName = Input.Email, 
-                    Email = Input.Email 
+                    UserName = Input.Username,
                 };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -84,9 +79,13 @@ namespace BellVotingSystem.WEB.Areas.Identity.Pages.Account
                     if (context.Users.Count() == 1)
                     {
                         await _userManager.AddToRoleAsync(user, "MasterAdmin");
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, Input.IsAdmin ? "SubAdmin" : "Voter");
                     }
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
                 }
 
