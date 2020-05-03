@@ -4,6 +4,8 @@ namespace BellVotingSystem.WEB.Models
 {
     public class EntryViewModel
     {
+        public int Id { get; set; }
+
         public string Song { get; set; }
 
         public string Artist { get; set; }
@@ -11,5 +13,7 @@ namespace BellVotingSystem.WEB.Models
         public int VoteCount { get; set; }
 
         public DateTime ChosenOn { get; set; }
+
+        public bool isBlacklisted { get; set; }
     }
 }
