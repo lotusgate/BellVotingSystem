@@ -29,7 +29,6 @@ namespace BellVotingSystem.WEB.Controllers
             EntryViewModel entryViewModel = new EntryViewModel()
             {
                 Song = entry.Song,
-                Artist = entry.Artist,
                 VoteCount = entry.VoteCount
             };
 

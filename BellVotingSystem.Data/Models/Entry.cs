@@ -6,8 +6,6 @@
 
         public string Song { get; set; }
 
-        public string Artist { get; set; }
-
         public int VoteCount { get; set; }
     }
 }
