@@ -1,4 +1,4 @@
-﻿namespace BellVotingSystem.WEB.Models.User
+namespace BellVotingSystem.WEB.Models.User
 {
     public class UserViewModel
     {
