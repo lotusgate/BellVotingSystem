@@ -15,6 +15,8 @@ namespace BellVotingSystem.Data
 
         public DbSet<Entry> Entries { get; set; }
 
+        public DbSet<UsedSong> UsedSongs { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Config.CONNECTION_STRING);
