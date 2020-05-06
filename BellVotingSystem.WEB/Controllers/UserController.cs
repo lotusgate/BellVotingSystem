@@ -19,8 +19,6 @@ namespace BellVotingSystem.WEB.Controllers
         public IActionResult Index()
         {
             return View();
-
-             
         }
 
         [HttpGet]

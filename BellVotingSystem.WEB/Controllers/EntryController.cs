@@ -15,6 +15,7 @@ namespace BellVotingSystem.WEB.Controllers
         {
             this.context = context;
         }
+
         public IActionResult Index()
         {
             return View();
