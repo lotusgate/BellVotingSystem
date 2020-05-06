@@ -55,10 +55,7 @@ namespace BellVotingSystem.WEB.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-        public async Task OnGetAsync(string returnUrl = null)
-        {
-            ReturnUrl = returnUrl;
-        }
+        public async Task OnGetAsync(string returnUrl = null) {}
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
