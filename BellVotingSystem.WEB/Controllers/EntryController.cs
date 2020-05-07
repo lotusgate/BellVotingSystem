@@ -80,7 +80,7 @@ namespace BellVotingSystem.WEB.Controllers
                 {
                     Id = Guid.NewGuid().ToString(),
                     Song = model.Song,
-                    VoteCount = 0,
+                    VoteCount = 1,
                 };
 
                 context.Entries.Add(entry);
