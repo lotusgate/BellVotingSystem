@@ -4,7 +4,7 @@ namespace BellVotingSystem.WEB.Models
 {
     public class EntryViewModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Song { get; set; }
 
