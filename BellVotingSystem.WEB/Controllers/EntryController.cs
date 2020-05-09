@@ -1,4 +1,4 @@
-﻿using BellVotingSystem.Data.Models;
+using BellVotingSystem.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using BellVotingSystem.Data;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +8,8 @@ using BellVotingSystem.WEB.Models.Entry;
 using System.Linq;
 using System;
 using BellVotingSystem.WEB.Models.Entries;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -23,6 +25,22 @@ namespace BellVotingSystem.WEB.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public async Task<IActionResult> AllBlacklistedSongs()
+        {
+            EntriesViewModel model = new EntriesViewModel();
+
+            model.Entries = await context.BlacklistedSongs.Select(e => new EntryViewModel()
+            { 
+                Id = e.Id,
+                Song = e.Song,
+                VoteCount = 0,
+                ChosenOn = DateTime.MinValue,
+                IsBlacklisted = true,
+            }).ToListAsync();
+
+            return View("Blacklist");
         }
 
         [HttpGet]
