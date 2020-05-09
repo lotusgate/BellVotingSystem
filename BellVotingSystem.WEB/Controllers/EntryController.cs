@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BellVotingSystem.WEB.Models.Entry;
 using System.Linq;
 using System;
+using BellVotingSystem.WEB.Models.Entries;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -90,6 +91,33 @@ namespace BellVotingSystem.WEB.Controllers
             }
 
             return View("AddEntry", model);
+        }
+
+        public async Task<IActionResult> AddToBlacklist(EntriesViewModel model)
+        {
+            foreach (EntryViewModel entry in model.Entries)
+            {
+                if (entry.IsBlacklisted)
+                {
+                    BlacklistedSong bs = new BlacklistedSong
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Song = entry.Song,
+                    };
+
+                    await context.BlacklistedSongs.AddAsync(bs);
+
+                    Entry e = await context.Entries.FirstOrDefaultAsync(e => e.Id == entry.Id);
+                    if (e != null)
+                    {
+                        context.Entries.Remove(e);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+            }
+
+            return View("Index", "Home");
         }
 
         [HttpGet]
