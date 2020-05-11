@@ -8,8 +8,6 @@ using BellVotingSystem.WEB.Models.Entry;
 using System.Linq;
 using System;
 using BellVotingSystem.WEB.Models.Entries;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -22,9 +20,9 @@ namespace BellVotingSystem.WEB.Controllers
             this.context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult AllEntries()
         {
-            return View();
+            return View("Index");
         }
 
         public async Task<IActionResult> AllBlacklistedSongs()

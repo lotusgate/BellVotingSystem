@@ -38,7 +38,7 @@ namespace BellVotingSystem.WEB.Controllers
                 return RedirectToPage("/Account/Register", new { area = "Identity" });
             }
 
-            return View();
+            return RedirectToAction("AllEntries", "Entry");
         }
 
         public IActionResult Privacy()
