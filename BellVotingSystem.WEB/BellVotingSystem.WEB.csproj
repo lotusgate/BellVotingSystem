@@ -23,9 +23,4 @@
     <ProjectReference Include="..\BellVotingSystem.Data\BellVotingSystem.Data.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Views\Entries\" />
-  </ItemGroup>
-
 </Project>

@@ -1,3 +1,4 @@
+using BellVotingSystem.WEB.Models.User;
 using System.Collections.Generic;
 
 namespace BellVotingSystem.WEB.Models.Users
