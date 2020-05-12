@@ -41,7 +41,7 @@ namespace BellVotingSystem.WEB.Controllers
                 }).ToListAsync()
             };
 
-            return View("Index", model);
+            return View("AllSongs", model);
         }
 
         public async Task<IActionResult> AllSongs()
