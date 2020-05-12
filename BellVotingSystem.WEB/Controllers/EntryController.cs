@@ -133,7 +133,7 @@ namespace BellVotingSystem.WEB.Controllers
                 }
             }
 
-            return View("Index", "Home");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
