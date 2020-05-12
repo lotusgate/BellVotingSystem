@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BellVotingSystem.WEB.Models.Entries
+namespace BellVotingSystem.WEB.Models.Entry
 {
     public class EntriesViewModel
     {

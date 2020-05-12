@@ -1,6 +1,6 @@
 using System;
 
-namespace BellVotingSystem.WEB.Models
+namespace BellVotingSystem.WEB.Models.Entry
 {
     public class EntryViewModel
     {

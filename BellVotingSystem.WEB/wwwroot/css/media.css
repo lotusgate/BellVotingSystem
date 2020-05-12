@@ -1,0 +1,17 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+h1 {}/* Остави го празно тук,че като се махне - доло кода не работи, незнам защо, но така поне не пречи*/
+
+@media only screen and (max-width: 769px) 
+{
+	img
+	{
+		display: none;
+	}
+
+	thead{
+		display: none;
+	}
+	.vote{
+		padding-right: 30px;
+	}
+}

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BellVotingSystem.WEB.Models.Entry;
 using System.Linq;
 using System;
-using BellVotingSystem.WEB.Models.Entries;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -25,6 +24,22 @@ namespace BellVotingSystem.WEB.Controllers
             return View("Index");
         }
 
+        public async Task<IActionResult> AllSongs()
+        {
+            EntriesViewModel model = new EntriesViewModel();
+
+            model.Entries = await context.Entries.Select(e => new EntryViewModel()
+            {
+                Id = e.Id,
+                Song = e.Song,
+                VoteCount = e.VoteCount,
+                ChosenOn = new DateTime(),
+                IsBlacklisted = false,
+            }).ToListAsync();
+
+            return View(model);
+        }
+
         public async Task<IActionResult> AllBlacklistedSongs()
         {
             EntriesViewModel model = new EntriesViewModel();
@@ -34,7 +49,7 @@ namespace BellVotingSystem.WEB.Controllers
                 Id = e.Id,
                 Song = e.Song,
                 VoteCount = 0,
-                ChosenOn = DateTime.MinValue,
+                ChosenOn = new DateTime(),
                 IsBlacklisted = true,
             }).ToListAsync();
 
@@ -103,7 +118,7 @@ namespace BellVotingSystem.WEB.Controllers
                 context.Entries.Add(entry);
                 await context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AllSongs));
             }
 
             return View("AddEntry", model);
@@ -149,6 +164,13 @@ namespace BellVotingSystem.WEB.Controllers
             };
 
             return View("", entryViewModel);
+        }
+        public async Task<IActionResult> Vote(string id)
+        {
+            Entry entry = await context.Entries.SingleOrDefaultAsync(e => e.Id == id);
+            entry.VoteCount++;
+            await context.SaveChangesAsync();
+            return RedirectToAction(nameof(AllSongs));
         }
     }
 }

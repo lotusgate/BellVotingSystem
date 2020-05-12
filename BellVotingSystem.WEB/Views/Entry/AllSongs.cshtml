@@ -1,0 +1,57 @@
+﻿@model BellVotingSystem.WEB.Models.Entry.EntriesViewModel
+
+@{
+    ViewData["Title"] = "AllSongs";
+}
+
+<div class="float-left">
+    <div>
+        <h3>LAST WEEK SONG:</h3>
+        @*<iframe src="https://open.spotify.com/embed/track/0FE9t6xYkqWXU2ahLh6D8X" height="80"
+            frameborder="0" allowtransparency="true" allow="encrypted-media" id="lastWeek"></iframe>*@
+    </div>
+    <p>
+        <a class="btn btn-info" role="button" asp-action="Add">ADD NEW</a>
+    </p>
+</div>
+
+<div class="table-responsive-md">
+    <table class=" table">
+        <thead>
+            <tr class="row">
+                <th class="col-md-5">
+                    Song
+                </th>
+                <th class="col-md-2">
+                    Votes
+                </th>
+                <th class="col-md-2">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model.Entries)
+            {
+                <tr class="row">
+                    <td class="col-md-5">
+                        <div>
+                            <iframe src="@(entry.Song.Substring(0, 24) + "/embed" + entry.Song.Substring(24))" height="80"
+                                    frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            @*@Html.DisplayFor(modelItem => entry.Song)*@
+                        </div>
+                    </td>
+                    <td class="col-md-2 text-right vote">
+                        @Html.DisplayFor(modelItem => entry.VoteCount)
+                    </td>
+                    <td class="col-md-2 text-right ">
+                        @if (!this.User.IsInRole("Voter"))
+                        {
+                            <a class="btn btn-info" role="button" asp-action="AddToBlacklist" asp-route-id="@entry.Id">Ban</a>
+                        }
+                        <a class="btn btn-info" role="button" asp-action="Vote" asp-route-id="@entry.Id">Vote</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
