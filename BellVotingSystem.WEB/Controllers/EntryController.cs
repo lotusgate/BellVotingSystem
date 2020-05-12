@@ -2,7 +2,6 @@ using BellVotingSystem.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using BellVotingSystem.Data;
 using Microsoft.EntityFrameworkCore;
-using BellVotingSystem.WEB.Models;
 using System.Threading.Tasks;
 using BellVotingSystem.WEB.Models.Entry;
 using System.Linq;
