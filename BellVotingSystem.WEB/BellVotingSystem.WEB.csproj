@@ -5,6 +5,15 @@
     <UserSecretsId>aspnet-BellVotingSystem.WEB-A5C3D0B4-FA77-41F2-B91E-8132EC904259</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Help.cshtml" />
+    <None Include="wwwroot\css\design.css" />
+    <None Include="wwwroot\css\media.css" />
+    <None Include="wwwroot\logo.png" />
+    <None Include="wwwroot\logo.svg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.3" />

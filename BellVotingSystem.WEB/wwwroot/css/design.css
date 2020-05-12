@@ -1,0 +1,22 @@
+h1 {
+  color: #325F8D;
+  text-align: center;
+}
+
+.btn-info{
+ background-color: #0EA5ED;
+ transition-duration: 0.5s;
+}
+.btn-info:hover{
+  opacity: 0.5;
+}
+.nav-link{
+  opacity: 0.5;
+  transition-duration: 0.5s;
+}
+.nav-link:hover{
+  background-color: #0EA5ED;
+  border: 2px; 
+  opacity: 0.8;
+}
+

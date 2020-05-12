@@ -38,12 +38,22 @@ namespace BellVotingSystem.WEB.Controllers
                 return RedirectToPage("/Account/Register", new { area = "Identity" });
             }
 
-            return RedirectToAction("AllEntries", "Entry");
+            return RedirectToAction("AllSongs", "Entry");
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Help()
+        {
+            return View("Help");
+        }
+
+        public IActionResult About()
+        {
+            return View("About");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
