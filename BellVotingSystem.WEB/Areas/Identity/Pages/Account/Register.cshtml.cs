@@ -76,7 +76,7 @@ namespace BellVotingSystem.WEB.Areas.Identity.Pages.Account
                     if (context.Users.Count() == 1)
                     {
                         await _userManager.AddToRoleAsync(user, "MasterAdmin");
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        await _signInManager.SignInAsync(user, isPersistent: true);
                     }
                     else
                     {
