@@ -41,7 +41,7 @@
                                 <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Users</a>
                             </li>
                         }
-                        @if (!this.User.Identity.IsAuthenticated) //
+                        @if (!this.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link nav-link-white" asp-controller="Home" asp-action="TopFive">Top 5 songs this week</a> //
@@ -51,7 +51,7 @@
                             </li>
 
                         }
-                        @if (this.User.Identity.IsAuthenticated)
+                        else
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
