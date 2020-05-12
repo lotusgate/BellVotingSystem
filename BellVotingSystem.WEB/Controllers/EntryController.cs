@@ -20,9 +20,29 @@ namespace BellVotingSystem.WEB.Controllers
             this.context = context;
         }
 
-        public IActionResult AllEntries()
+        public async Task<IActionResult> AllEntries()
         {
-            return View("Index");
+            EntriesViewModel model = new EntriesViewModel
+            {
+                Entry = (EntryViewModel)context.UsedSongs.OrderByDescending(s => s.ChosenOn).Take(1)
+                .Select(s => new EntryViewModel
+                {
+                    Id = s.Id,
+                    Song = s.Song,
+                    ChosenOn = s.ChosenOn,
+                    IsBlacklisted = false,
+                }),
+
+                Entries = await context.Entries.OrderByDescending(e => e.VoteCount).Select(e => new EntryViewModel
+                {
+                    Id = e.Id,
+                    Song = e.Song,
+                    VoteCount = e.VoteCount,
+                    IsBlacklisted = false,
+                }).ToListAsync()
+            };
+
+            return View("Index", model);
         }
 
         public async Task<IActionResult> AllBlacklistedSongs()
@@ -30,7 +50,7 @@ namespace BellVotingSystem.WEB.Controllers
             EntriesViewModel model = new EntriesViewModel();
 
             model.Entries = await context.BlacklistedSongs.Select(e => new EntryViewModel()
-            { 
+            {
                 Id = e.Id,
                 Song = e.Song,
                 VoteCount = 0,
