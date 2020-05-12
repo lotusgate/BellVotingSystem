@@ -46,32 +46,34 @@ namespace BellVotingSystem.WEB.Controllers
 
         public async Task<IActionResult> AllSongs()
         {
-            EntriesViewModel model = new EntriesViewModel();
-
-            model.Entries = await context.Entries.Select(e => new EntryViewModel()
+            EntriesViewModel model = new EntriesViewModel
             {
-                Id = e.Id,
-                Song = e.Song,
-                VoteCount = e.VoteCount,
-                ChosenOn = new DateTime(),
-                IsBlacklisted = false,
-            }).ToListAsync();
+                Entries = await context.Entries.Select(e => new EntryViewModel()
+                {
+                    Id = e.Id,
+                    Song = e.Song,
+                    VoteCount = e.VoteCount,
+                    ChosenOn = new DateTime(),
+                    IsBlacklisted = false,
+                }).ToListAsync()
+            };
 
             return View(model);
         }
 
         public async Task<IActionResult> AllBlacklistedSongs()
         {
-            EntriesViewModel model = new EntriesViewModel();
-
-            model.Entries = await context.BlacklistedSongs.Select(e => new EntryViewModel()
+            EntriesViewModel model = new EntriesViewModel
             {
-                Id = e.Id,
-                Song = e.Song,
-                VoteCount = 0,
-                ChosenOn = new DateTime(),
-                IsBlacklisted = true,
-            }).ToListAsync();
+                Entries = await context.BlacklistedSongs.Select(e => new EntryViewModel()
+                {
+                    Id = e.Id,
+                    Song = e.Song,
+                    VoteCount = 0,
+                    ChosenOn = new DateTime(),
+                    IsBlacklisted = true,
+                }).ToListAsync()
+            };
 
             return View("Blacklist");
         }
