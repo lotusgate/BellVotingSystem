@@ -43,7 +43,7 @@ namespace BellVotingSystem.WEB.Controllers
                 return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
 
-            return RedirectToAction("AllSongs", "Entry");
+            return RedirectToAction("AllEntries", "Entry");
         }
 
         public IActionResult Privacy()

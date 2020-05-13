@@ -22,14 +22,14 @@ namespace BellVotingSystem.WEB.Controllers
         {
             EntriesViewModel model = new EntriesViewModel
             {
-                Entry = (EntryViewModel)context.UsedSongs.OrderByDescending(s => s.ChosenOn).Take(1)
+                Entry = await context.UsedSongs.OrderByDescending(s => s.ChosenOn).Take(1)
                 .Select(s => new EntryViewModel
                 {
                     Id = s.Id,
                     Song = s.Song,
                     ChosenOn = s.ChosenOn,
                     IsBlacklisted = false,
-                }),
+                }).FirstOrDefaultAsync(),
 
                 Entries = await context.Entries.OrderByDescending(e => e.VoteCount).Select(e => new EntryViewModel
                 {
@@ -40,7 +40,7 @@ namespace BellVotingSystem.WEB.Controllers
                 }).ToListAsync()
             };
 
-            return View("AllSongs", model);
+            return View("AllEntries", model);
         }
 
         public async Task<IActionResult> AllSongs()
@@ -139,7 +139,7 @@ namespace BellVotingSystem.WEB.Controllers
                 context.Entries.Add(entry);
                 await context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(AllSongs));
+                return RedirectToAction(nameof(AllEntries));
             }
 
             return View("AddEntry", model);

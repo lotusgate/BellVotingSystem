@@ -1,7 +1,7 @@
 ﻿@model BellVotingSystem.WEB.Models.Entry.EntriesViewModel
 
 @{
-    ViewData["Title"] = "AllSongs";
+    ViewData["Title"] = "AllEntries";
 }
 
 <div class="float-left">
@@ -11,7 +11,7 @@
             frameborder="0" allowtransparency="true" allow="encrypted-media" id="lastWeek"></iframe>*@
     </div>
     <p>
-        <a class="btn btn-info" role="button" asp-action="Add">ADD NEW</a>
+        <a class="btn btn-info" role="button" asp-controller="Entry" asp-action="Add">ADD NEW</a>
     </p>
 </div>
 
