@@ -40,7 +40,7 @@ namespace BellVotingSystem.WEB.Controllers
                 }).ToListAsync()
             };
 
-            return View("AllEntries", model);
+            return View(model);
         }
 
         public async Task<IActionResult> AllSongs()
@@ -186,6 +186,7 @@ namespace BellVotingSystem.WEB.Controllers
 
             return View("", entryViewModel);
         }
+
         public async Task<IActionResult> Vote(string id)
         {
             Entry entry = await context.Entries.SingleOrDefaultAsync(e => e.Id == id);
