@@ -1,9 +1,8 @@
-using BellVotingSystem.WEB.Models.User;
 using System.Collections.Generic;
 
-namespace BellVotingSystem.WEB.Models.Users
+namespace BellVotingSystem.WEB.Models.User
 {
-    public class EntriesViewModel
+    public class UsersViewModel
     {
         public UserViewModel User { get; set; }
 
