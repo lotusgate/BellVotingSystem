@@ -48,7 +48,7 @@ namespace BellVotingSystem.WEB.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return View("Privacy");
         }
 
         public IActionResult Help()
