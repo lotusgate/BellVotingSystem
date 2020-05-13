@@ -6,8 +6,6 @@ using System.Linq;
 using System;
 using System.Threading.Tasks;
 using BellVotingSystem.Data;
-using BellVotingSystem.Data.Models;
-using System.Security.Claims;
 
 namespace BellVotingSystem.WEB.Controllers
 {
