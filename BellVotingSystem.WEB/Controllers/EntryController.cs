@@ -74,7 +74,7 @@ namespace BellVotingSystem.WEB.Controllers
                 }).ToListAsync()
             };
 
-            return View("Blacklist");
+            return View("Blacklist", model);
         }
 
         [HttpGet]
