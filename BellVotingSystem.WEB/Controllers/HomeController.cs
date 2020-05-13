@@ -6,6 +6,8 @@ using System.Linq;
 using System;
 using System.Threading.Tasks;
 using BellVotingSystem.Data;
+using BellVotingSystem.Data.Models;
+using System.Security.Claims;
 
 namespace BellVotingSystem.WEB.Controllers
 {
@@ -33,9 +35,14 @@ namespace BellVotingSystem.WEB.Controllers
                 await roleManager.CreateAsync(voter);
             }
 
-            if (!context.Users.Any())
+            if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToPage("/Account/Register", new { area = "Identity" });
+                if (!context.Users.Any())
+                {
+                    return RedirectToPage("/Account/Register", new { area = "Identity" });
+                }
+
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
 
             return RedirectToAction("AllSongs", "Entry");
